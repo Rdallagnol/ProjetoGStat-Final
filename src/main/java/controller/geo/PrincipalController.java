@@ -39,7 +39,7 @@ public class PrincipalController {
     @Path("/")
     public void index() {
 
-    }  
+    }    
 
     @Path("/funcaoGeo")
     public void funcaoGeo() {
