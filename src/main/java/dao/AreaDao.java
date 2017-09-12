@@ -8,12 +8,16 @@ package dao;
 
 import entity.AreaEntity;
 import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+
 import utils.GenericDao;
 
 /**
  *
  * @author Dallagnol
  */
+@RequestScoped
 public class AreaDao extends GenericDao<AreaEntity, Long>{
     
     
