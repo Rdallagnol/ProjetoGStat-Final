@@ -11,7 +11,7 @@
             <h4>Sucesso!</h4>
             ${mensagemOK}
         </div>
-    </c:if>
+    </c:if> 
 
     <div class="bs-docs-example">
         <div class="bs-docs-text"> Analises Realizadas </div>
@@ -42,7 +42,7 @@
                             <td>${analise.creation_date}</td>
                             <td>${analise.status}</td>
                             <td> 
-                                <form action="${linkTo[PrincipalController].visualizaGeo()}" method="post" class="btn btn-link" > 
+                                <form action="<c:url value='visualizaGeo'/>" method="post" class="btn btn-link" > 
                                     <input id="analiseId" type="hidden" name="analiseId"  value="${analise.analise_header_id}" />
                                     <button class="btn btn-mini btn-primary" type="submit">Visualizar</button>
                                 </form>
@@ -95,7 +95,7 @@
                                     <td>${analiseLine.isi}</td>
                                   
                                     <td class="">
-                                         <form action="funcaoKrigagem" method="post" name="formKrig" id="formKrig">
+                                         <form action="<c:url value='funcaoKrigagem'/> " method="post" name="formKrig" id="formKrig">
                                             <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
                                             <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
                                         <button class="btn btn-mini btn-primary" type="submit">Gerar Mapa</button>
@@ -123,7 +123,7 @@
                                
                                     <td class="">
                                         
-                                        <form action="funcaoKrigagem" method="post" name="formKrig" id="formKrig">
+                                        <form action="<c:url value='funcaoKrigagem'/>" method="post" name="formKrig" id="formKrig">
                                             <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
                                             <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
                                             <button class="btn btn-mini btn-primary" type="submit">Gerar Mapa</button>

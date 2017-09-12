@@ -39,7 +39,7 @@ public class PrincipalController {
     @Path("/")
     public void index() {
 
-    }    
+    } 
 
     @Path("/funcaoGeo")
     public void funcaoGeo() {
@@ -162,7 +162,9 @@ public class PrincipalController {
     public void visualizaGeo() {
 
         result.include("analises", DaoFactory.analiseInstance().findAllOrdenado());
-
+      
+        // result.use(Results.xml()).from(DaoFactory.analiseInstance().findAllOrdenado()).serialize();
+       
         if (request.getMethod().equals("POST")) {
 
             String descricao = null;
