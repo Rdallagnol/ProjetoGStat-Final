@@ -5,6 +5,7 @@
  */
 package dao;
 
+
 import entity.AnaliseLinesEntity;
 import java.util.List;
 import utils.GenericDao;
@@ -16,7 +17,13 @@ import utils.GenericDao;
 public class AnaliseLineDao extends GenericDao<AnaliseLinesEntity, Long> {
 
     @SuppressWarnings("unchecked")
-    public List<AnaliseLinesEntity> findByArea(Long areaId) {
-        return (List<AnaliseLinesEntity>) this.executeQuery(" select a from AnaliseLinesEntity a where a.analiseHeader.analise_header_id = ?0 order by a.isi ", areaId);
+    public List<AnaliseLinesEntity> findByAnaliseHeader(Long analiseHeaderId) {
+        return (List<AnaliseLinesEntity>) this.executeQuery(" select a from AnaliseLinesEntity a where a.analiseHeader.analise_header_id = ?0 order by a.isi ", analiseHeaderId);
+    }
+    
+    @SuppressWarnings("unchecked")
+    public List<AnaliseLinesEntity> findAnaliseLine(Long analiseLineId) {    	 
+		List<AnaliseLinesEntity> l =  (List<AnaliseLinesEntity>) this.executeQuery("select a from AnaliseLinesEntity a where a.analise_lines_id = ?0", analiseLineId);    	
+    	return l; 
     }
 }

@@ -1,5 +1,7 @@
-<%@include file="../template/header.jsp" %>
-<div class="row-fluid" style="">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/WEB-INF/jsp/template/header.jsp"/>
+
+<div class="row-fluid">
     <h1>${lineId}</h1>
     <c:if test="${not empty lineId}">
         <div class="row-fluid bs-docs-example" >
@@ -9,4 +11,7 @@
         </div>
     </c:if>
 </div>
-<%@include file="../template/footer.jsp" %>
+
+
+<c:import url="/WEB-INF/jsp/template/footer.jsp"/>
+

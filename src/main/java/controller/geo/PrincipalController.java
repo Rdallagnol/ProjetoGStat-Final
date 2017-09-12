@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.view.Results;
 import dao.AmostraDao;
 import entity.AmostraEntity;
 import entity.AnaliseEntity;
+import entity.AnaliseLinesEntity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -138,8 +139,8 @@ public class PrincipalController {
                         }
                     }
                     reader.close();
-                    if (ok != null) {
-                        result.redirectTo(this).visualizaMapa(request.getParameter("analise_line_id"), request.getParameter("user"));
+                    if (ok != null) {                        
+                        result.redirectTo(this).visualizaMapa(Long.parseLong(request.getParameter("analise_line_id")));
                     } else {
                         result.include("errorMsg", "Não foi possível realizar a analise favor verificar dados !");
                     }
@@ -174,7 +175,7 @@ public class PrincipalController {
             
             result.include("analiseLines",
                     DaoFactory.analiseLineInstance()
-                            .findByArea(Long.parseLong(request.getParameter("analiseId"))));
+                            .findByAnaliseHeader(Long.parseLong(request.getParameter("analiseId"))));
 
             List<AnaliseEntity> analise
                     = DaoFactory.analiseInstance()
@@ -191,12 +192,20 @@ public class PrincipalController {
         }
     }
 
-    @Path("/visualizaMapa")
-    public void visualizaMapa(String lineId, String userID) {
-        System.out.println(lineId);   
-        System.out.println(userID);   
-      
-        result.include("userID", userID);
-        result.include("lineId", lineId);
+    @Get("/visualizaMapa/{i}")
+    public void visualizaMapa(Long i) {  
+    	
+    	List<AnaliseLinesEntity> l = DaoFactory.analiseLineInstance().findAnaliseLine(i);
+    	
+    	AnaliseLinesEntity a = new AnaliseLinesEntity();
+    	
+    	for (AnaliseLinesEntity analiseLine : l) {    		 
+    		 a.setAnalise_lines_id(analiseLine.getAnalise_lines_id());
+        }    	
+    	
+    	System.out.println(a.getAnalise_lines_id());
+    	result.include("lineId", a.getAnalise_lines_id());
+    	result.include("userID", 872);
+        
     }
 }

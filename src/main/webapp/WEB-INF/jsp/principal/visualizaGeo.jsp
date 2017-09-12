@@ -1,4 +1,5 @@
-<%@include file="../template/header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/WEB-INF/jsp/template/header.jsp"/>
 
     
 <div class="row-fluid" style="">
@@ -102,7 +103,7 @@
                                         </form>
                                             
                                          <c:if test="${analiseLine.mapa_gerado == 1}">     
-                                                <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id,872)}" class="btn btn-warning"><i class="icon-globe"></i></a>
+                                                <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-warning"><i class="icon-globe"></i>${analiseLine.analise_lines_id}</a>
                                          </c:if>   
                                          
                                     </td>
@@ -131,7 +132,7 @@
                                             
                                             
                                         <c:if test="${analiseLine.mapa_gerado == 1}">     
-                                           <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id,872)}" class="btn btn-warning"><i class="icon-globe"></i></a>                                        
+                                           <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-warning"><i class="icon-globe"></i>${analiseLine.analise_lines_id}</a>                                        
                                         </c:if> 
                                             
                                          
@@ -159,4 +160,5 @@
         </div>
     </c:if>
 </div>
-<%@include file="../template/footer.jsp" %>
+<c:import url="/WEB-INF/jsp/template/footer.jsp"/>
+
