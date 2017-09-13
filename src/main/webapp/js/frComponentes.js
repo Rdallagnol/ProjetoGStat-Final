@@ -26,3 +26,5 @@ $('#formKrig').submit(function () {
     $('#spinner').show();
     $('html, body').animate({scrollTop:0}, 'slow');
 });
+
+

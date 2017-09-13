@@ -3,14 +3,14 @@
 
 <div class="row-fluid">
 
-	<c:if test="${not empty lineId}">
+	<c:if test="${not empty analise.analise_lines_id}">
 		<div class=" bs-docs-example">
 
 			<div class="row-fluid ">
 
 				<div class="row-fluid span6">
 					<img
-						src="${pageContext.servletContext.contextPath}/mapa/${userID}/mapa_${lineId}/mapa.png">
+						src="${pageContext.servletContext.contextPath}/mapa/${userID}/mapa_${analise.analise_lines_id}/mapa.png">
 				</div>
 				<div class="row-fluid span2">
 

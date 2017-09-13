@@ -5,9 +5,9 @@
 <div id="footer" class="">
 </div>
 </div>
-<script src="<c:url value="/js/jquery-3.1.1.min.js"></c:url>"></script>
-<script src="<c:url value="/js/bootstrap.min.js"></c:url>"></script>   
-<script src="<c:url value="/js/frComponentes.js"></c:url>"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>   
+<script src="${pageContext.request.contextPath}/js/frComponentes.js"></script>
 
 </body>
 </html>

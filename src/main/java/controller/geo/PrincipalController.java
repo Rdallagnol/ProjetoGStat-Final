@@ -258,10 +258,7 @@ public class PrincipalController {
     		 a = analiseLine;
         }    	
     	
-    	result.include("analise", a);    	
-    	result.include("descArea", a.getAnaliseHeader().getArea().getNome());   
-    	result.include("descAmostra", a.getAnaliseHeader().getAmostra().getDescricao());  
-    	result.include("lineId", a.getAnalise_lines_id());
+    	result.include("analise", a);    
     	result.include("userID", 872);
         
     }

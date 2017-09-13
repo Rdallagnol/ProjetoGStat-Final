@@ -21,10 +21,10 @@
         <title>SAG - Sistema de Analise Geoestatística</title>  
 
       
-        <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet"/>
-        <link href="<c:url value="/css/bootstrap-responsive.css"/>" rel="stylesheet"/>
-        <link href="<c:url value="/css/loader.css"/>" rel="stylesheet"/>
-        <link rel="shortcut icon" href="/img/favicon.ico">
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="${pageContext.request.contextPath}/css/bootstrap-responsive.css" rel="stylesheet"/>
+        <link href="${pageContext.request.contextPath}/css/loader.css" rel="stylesheet"/>
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico">
     </head>
 
     <body style="background-color: #fafafa;">
@@ -36,7 +36,7 @@
                         <div class="navbar-inner row-fluid" >                                    
                             <ul class="nav" >
                                 <li>
-                                    <div style="padding: 4px;"> <img src="img/logoMenu.png">  </div> </li>
+                                    <div style="padding: 4px;"> <img src="${pageContext.request.contextPath}/img/logoMenu.png">  </div> </li>
                                 <li class="active">
                                     <a href="${linkTo[PrincipalController].index()}">Início</a>
 
