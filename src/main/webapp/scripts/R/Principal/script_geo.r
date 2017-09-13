@@ -2,12 +2,13 @@ args<-commandArgs(TRUE)
 
 # -- INFORMAÇÕES DE PASTAS E DO BANCO DE DADOS -- #
 mainDir<-args[1]
+mainDir
+
 dataBaseName<-args[2]
 dataBaseHost<-args[3]
 dataBaseUser<-args[4]
 dataBasePassword<-args[5]
 dataBasePort<-args[6]
-
 # -- PARAMETROS ENVIADOS PELA TELA -- #
 usuario<-as.numeric(args[7])
 area<-as.numeric(args[8])

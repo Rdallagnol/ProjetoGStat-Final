@@ -5,27 +5,28 @@
  */
 package controller.geo;
 
-import config.Constantes;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
+import config.Constantes;
 import dao.AmostraDao;
 import entity.AmostraEntity;
 import entity.AnaliseEntity;
 import entity.AnaliseLinesEntity;
+import utils.DaoFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import utils.DaoFactory;
 
+import javax.servlet.http.HttpServletRequest;
+
+ 
 /**
  *
  * @author Dallagnol
@@ -39,12 +40,15 @@ public class PrincipalController {
     @Inject
     private HttpServletRequest request;
 
-    @Path("/")
+   
+	@Path("/")
     public void index() {
-
+    	
+	
     } 
 
-    @Path("/funcaoGeo")
+ 
+	@Path("/funcaoGeo")
     public void funcaoGeo() {
 
         result.include("areas",
@@ -52,7 +56,8 @@ public class PrincipalController {
 
         if (request.getMethod().equals("POST")) {
             try {
-
+            	      	
+            	
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
                                 + Constantes.ENDERECO_GEO_S
@@ -154,6 +159,56 @@ public class PrincipalController {
         }
     }
 
+    
+    
+     
+    @Path("/funcaoInverso")
+    public void funcaoInverso() {
+
+        if (request.getMethod().equals("POST")) {
+            try {
+
+                Process process = Runtime.getRuntime()
+                        .exec(Constantes.ENDERECO_R
+                                + Constantes.ENDERECO_IDW_S
+                                + Constantes.ENDERECO_MAPA + " "
+                                + Constantes.DATA_BASE_NAME + " "
+                                + Constantes.DATA_BASE_HOST + " "
+                                + Constantes.DATA_BASE_USER + " "
+                                + Constantes.DATA_BASE_PASSWORD + " "
+                                + Constantes.DATA_BASE_PORT + " "
+                                + request.getParameter("user") + " "
+                                + request.getParameter("analise_line_id") + " "
+                        );
+
+                try {
+                    final BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    String line = null;
+                    String ok = null;
+                    while ((line = reader.readLine()) != null) {
+                       // System.out.println(line);
+                        if (line.equals("[1] 9999")) {
+                            ok = "OK";
+                        }
+                    }
+                    reader.close();
+                    if (ok != null) {                        
+                        result.redirectTo(this).visualizaMapa(Long.parseLong(request.getParameter("analise_line_id")));
+                    } else {
+                        result.include("errorMsg", "Não foi possível realizar a analise favor verificar dados !");
+                    }
+                } catch (final Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        }
+    }
+    
+    
+    
     @Get("/buscaAmostrasDaArea")
     public void buscaAmostrasDaArea(Long idArea) {
         AmostraDao amostraDao = DaoFactory.amostraDaoInstance();
@@ -200,12 +255,15 @@ public class PrincipalController {
     	AnaliseLinesEntity a = new AnaliseLinesEntity();
     	
     	for (AnaliseLinesEntity analiseLine : l) {    		 
-    		 a.setAnalise_lines_id(analiseLine.getAnalise_lines_id());
+    		 a = analiseLine;
         }    	
     	
-    	System.out.println(a.getAnalise_lines_id());
+    	result.include("analise", a);    	
+    	result.include("descArea", a.getAnaliseHeader().getArea().getNome());   
+    	result.include("descAmostra", a.getAnaliseHeader().getAmostra().getDescricao());  
     	result.include("lineId", a.getAnalise_lines_id());
     	result.include("userID", 872);
         
     }
+    
 }
