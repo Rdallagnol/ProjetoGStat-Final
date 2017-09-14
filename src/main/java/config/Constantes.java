@@ -5,8 +5,7 @@
  */
 package config;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+
 
 /**
  *
@@ -14,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class Constantes {
     
-	@Inject
-    private HttpServletRequest request;
-	
+
 	
     /** INFORMAÇÕES DA BASE DE DADOS **/
     public static final String DATA_BASE_HOST = "localhost";
@@ -36,7 +33,7 @@ public class Constantes {
     /** ENDEREÇO DO SCRIPT DE KRIGAGEM ORDINÁRIA */
     public static final String ENDERECO_KRIG_S = "D:\\ProjetoGstat\\src\\main\\webapp\\scripts\\R\\Principal\\script_krig.r ";  
    
-    /** ENDEREÇO DO SCRIPT DE KRIGAGEM ORDINÁRIA */
+    /** ENDEREÇO DO SCRIPT DO INVERSO DA DISTANCIA */
     public static final String ENDERECO_IDW_S = "D:\\ProjetoGstat\\src\\main\\webapp\\scripts\\R\\Principal\\script_idw.r ";  
     
     /** ENDEREÇO DA PASTA DE GRAVAÇÃO DOS ARQUIVOS */

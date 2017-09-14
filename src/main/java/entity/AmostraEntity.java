@@ -24,7 +24,11 @@ import utils.BaseBean;
 @Table(name = "amostra")
 public class AmostraEntity extends BaseBean {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @SequenceGenerator(name = "amostra_codigo_seq", sequenceName = "amostra_codigo_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "amostra_codigo_seq")
     private Long codigo;

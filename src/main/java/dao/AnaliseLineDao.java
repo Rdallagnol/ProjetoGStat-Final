@@ -21,8 +21,8 @@ import utils.GenericDao;
 public class AnaliseLineDao extends GenericDao<AnaliseLinesEntity, Long> {
 
     @SuppressWarnings("unchecked")
-    public List<AnaliseLinesEntity> findByAnaliseHeader(Long analiseHeaderId) {
-        return (List<AnaliseLinesEntity>) this.executeQuery(" select a from AnaliseLinesEntity a where a.analiseHeader.analise_header_id = ?0 order by a.isi ", analiseHeaderId);
+    public List<AnaliseLinesEntity> findByAnaliseHeader(Long analiseHeaderId) {    
+        return (List<AnaliseLinesEntity>) this.executeQuery("select a from AnaliseLinesEntity a where a.analiseHeader.analise_header_id = ?0 order by a.isi ", analiseHeaderId);
     }
     
     @SuppressWarnings("unchecked")

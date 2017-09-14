@@ -29,7 +29,12 @@ import utils.BaseBean;
 @Table(name = "geo_analise_header")
 public class AnaliseEntity extends BaseBean {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @SequenceGenerator(name = "geo_analise_header_seq", sequenceName = "geo_analise_header_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geo_analise_header_seq")
     private Long analise_header_id;

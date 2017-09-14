@@ -148,6 +148,8 @@
 
     <c:if test="${not empty userID}">
         <div class="row-fluid bs-docs-example" >
+         
+            <div class="bs-docs-text"> Representações Gráficas </div>
             <div class="row-fluid bs-docs-example">
                 <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/box_plot.png">
                 <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/grafico_pontos.png">
@@ -157,6 +159,7 @@
                 <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/melhor_modelo.png">
                 
             </div>
+         
         </div>
     </c:if>
 </div>

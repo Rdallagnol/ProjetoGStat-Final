@@ -24,7 +24,11 @@ import utils.BaseBean;
 @Table(name = "area")
 public class AreaEntity extends BaseBean {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @SequenceGenerator(name = "area_codigo_seq", sequenceName = "area_codigo_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "area_codigo_seq")
     private Long codigo;

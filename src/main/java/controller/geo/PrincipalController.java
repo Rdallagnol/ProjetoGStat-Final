@@ -45,8 +45,8 @@ public class PrincipalController {
    
 	@Path("/")
     public void index() {
-    	System.out.println(request.getServletContext().getRealPath("/file"));
-	
+    	System.out.println(request.getServletContext().getRealPath("/file"));	
+    	System.out.println(request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " ");	
     } 
 
  
@@ -62,7 +62,7 @@ public class PrincipalController {
             	
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
-                                + Constantes.ENDERECO_GEO_S
+                                + request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " "
                                 + request.getServletContext().getRealPath("/file") + " "
                                 + Constantes.DATA_BASE_NAME + " "
                                 + Constantes.DATA_BASE_HOST + " "
@@ -124,7 +124,7 @@ public class PrincipalController {
 
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
-                                + Constantes.ENDERECO_KRIG_S
+                        		+ request.getServletContext().getRealPath("/scripts/R/Principal/script_krig.r")+ " "
                                 + request.getServletContext().getRealPath("/mapa") + " "
                                 + Constantes.DATA_BASE_NAME + " "
                                 + Constantes.DATA_BASE_HOST + " "
@@ -229,11 +229,12 @@ public class PrincipalController {
 
             String descricao = null;
             Long userId = null;    
+         
             
             result.include("analiseLines",
                     DaoFactory.analiseLineInstance()
                             .findByAnaliseHeader(Long.parseLong(request.getParameter("analiseId"))));
-
+       
             List<AnaliseEntity> analise
                     = DaoFactory.analiseInstance()
                             .findById(Long.parseLong(request.getParameter("analiseId")));
@@ -245,7 +246,7 @@ public class PrincipalController {
 
             result.include("userID", userId);
             result.include("analiseDesc", descricao);
-            
+         
         }
     }
 
@@ -263,6 +264,14 @@ public class PrincipalController {
     	result.include("analise", a);    
     	result.include("userID", 872);
         
+    }
+    
+    
+    @Path("/visuList")
+    public void visuList() {
+    	
+        result.use(Results.xml()).from(DaoFactory.analiseLineInstance()
+                .findByAnaliseHeader(Long.parseLong("628"))).serialize();
     }
     
 }

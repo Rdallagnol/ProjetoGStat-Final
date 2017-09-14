@@ -26,7 +26,12 @@ import utils.BaseBean;
 @Table(name = "geo_analise_lines")
 public class AnaliseLinesEntity extends BaseBean {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @SequenceGenerator(name = "geo_analise_lines_seq", sequenceName = "geo_analise_lines_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geo_analise_lines_seq")
     private Long analise_lines_id;

@@ -5,7 +5,7 @@
 
 	<c:if test="${not empty analise.analise_lines_id}">
 		<div class=" bs-docs-example">
-
+			            <div class="bs-docs-text"> Mapa Temático </div>
 			<div class="row-fluid ">
 
 				<div class="row-fluid span6">
