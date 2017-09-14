@@ -7,12 +7,16 @@ package dao;
 
 import entity.AmostraEntity;
 import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+
 import utils.GenericDao;
 
 /**
  *
  * @author Dallagnol
  */
+@RequestScoped
 public class AmostraDao extends GenericDao<AmostraEntity, Long>{
     
     @SuppressWarnings("unchecked")

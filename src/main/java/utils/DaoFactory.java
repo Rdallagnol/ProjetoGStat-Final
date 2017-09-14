@@ -9,6 +9,8 @@ import dao.AmostraDao;
 import dao.AnaliseDao;
 import dao.AnaliseLineDao;
 import dao.AreaDao;
+
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -16,6 +18,7 @@ import javax.persistence.Persistence;
  *
  * @author Dallagnol
  */
+
 public final class DaoFactory {
 
     public DaoFactory() {

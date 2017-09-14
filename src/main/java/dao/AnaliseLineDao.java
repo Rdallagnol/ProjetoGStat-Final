@@ -8,12 +8,16 @@ package dao;
 
 import entity.AnaliseLinesEntity;
 import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+
 import utils.GenericDao;
 
 /**
  *
  * @author Dallagnol
  */
+@RequestScoped
 public class AnaliseLineDao extends GenericDao<AnaliseLinesEntity, Long> {
 
     @SuppressWarnings("unchecked")
@@ -26,4 +30,5 @@ public class AnaliseLineDao extends GenericDao<AnaliseLinesEntity, Long> {
 		List<AnaliseLinesEntity> l =  (List<AnaliseLinesEntity>) this.executeQuery("select a from AnaliseLinesEntity a where a.analise_lines_id = ?0", analiseLineId);    	
     	return l; 
     }
+    
 }

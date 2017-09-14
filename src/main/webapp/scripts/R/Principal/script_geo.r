@@ -164,12 +164,12 @@ insertHeader = paste0("INSERT INTO geo_analise_header(
 								analise_header_id, descricao_analise,area_id, amostra_id, created_by, 
 								creation_date, status, isi, v_lambda, auto_lags, nro_lags, 
 								estimador, cutoff,tam_pixel_x,tam_pixel_y,nro_intervalos_alc,
-								nro_intervalos_contr,nro_pares,min_seq_contr,min_seq_alc) ", 
+								nro_intervalos_contr,nro_pares,min_seq_contr,min_seq_alc,tipo_analise) ", 
 						"VALUES(",seq_header,",'",desc,"',",area,",",amostra,",",usuario,
 								", current_date, 'A', ",ISI,",",v_lambda,",",auto_lags,
 								",",nro_lags,",'",estimador,"',",cutoff,",",tam_pixel_x,
 								",",tam_pixel_y,",",nro_intervalos_alc,","
-								,nro_intervalos_contr,",",nro_pares,",",min_seq_contr,",",min_seq_alc,")")
+								,nro_intervalos_contr,",",nro_pares,",",min_seq_contr,",",min_seq_alc,",'KRIG')")
 
 # ---- #
 

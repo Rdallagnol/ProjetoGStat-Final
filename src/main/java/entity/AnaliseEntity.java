@@ -40,6 +40,7 @@ public class AnaliseEntity extends BaseBean {
     
     @NotNull
     private String descricao_analise;
+    private String tipo_analise;
     private String status;
 
     @OneToMany(mappedBy = "analiseHeader")
@@ -57,7 +58,7 @@ public class AnaliseEntity extends BaseBean {
     public AnaliseEntity() {
     }
 
-    public AnaliseEntity(Long analise_header_id, Date creation_date, Long created_by, String descricao_analise, String status, List<AnaliseLinesEntity> analisesLines, AreaEntity area, AmostraEntity amostra) {
+    public AnaliseEntity(Long analise_header_id, Date creation_date, Long created_by, String descricao_analise, String status, List<AnaliseLinesEntity> analisesLines, AreaEntity area, AmostraEntity amostra, String tipo_analise) {
         this.analise_header_id = analise_header_id;
         this.creation_date = creation_date;
         this.created_by = created_by;
@@ -66,6 +67,7 @@ public class AnaliseEntity extends BaseBean {
         this.analisesLines = analisesLines;
         this.area = area;
         this.amostra = amostra;
+        this.tipo_analise = tipo_analise;
     }
 
     public AmostraEntity getAmostra() {
@@ -131,5 +133,13 @@ public class AnaliseEntity extends BaseBean {
     public void setStatus(String status) {
         this.status = status;
     }
+
+	public String getTipo_analise() {
+		return tipo_analise;
+	}
+
+	public void setTipo_analise(String tipo_analise) {
+		this.tipo_analise = tipo_analise;
+	}
 
 }

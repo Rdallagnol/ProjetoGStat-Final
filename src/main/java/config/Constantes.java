@@ -5,12 +5,19 @@
  */
 package config;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author Dallagnol
  */
 public class Constantes {
     
+	@Inject
+    private HttpServletRequest request;
+	
+	
     /** INFORMAÇÕES DA BASE DE DADOS **/
     public static final String DATA_BASE_HOST = "localhost";
     public static final String DATA_BASE_PORT = "5433";

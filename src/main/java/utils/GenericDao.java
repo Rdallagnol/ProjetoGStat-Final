@@ -7,6 +7,8 @@ package utils;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
@@ -16,6 +18,7 @@ import javax.persistence.Query;
  * @author Dallagnol
  */
 @SuppressWarnings("unchecked")
+
 public abstract class GenericDao<T, PK> {
 
     private final EntityManager entityManager;

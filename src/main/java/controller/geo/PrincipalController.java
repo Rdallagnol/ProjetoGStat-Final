@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Dallagnol
  */
 @Controller
+@RequestScoped
 public class PrincipalController {
 
     @Inject
@@ -43,7 +45,7 @@ public class PrincipalController {
    
 	@Path("/")
     public void index() {
-    	
+    	System.out.println(request.getServletContext().getRealPath("/file"));
 	
     } 
 
@@ -61,7 +63,7 @@ public class PrincipalController {
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
                                 + Constantes.ENDERECO_GEO_S
-                                + Constantes.ENDERECO_FILE + " "
+                                + request.getServletContext().getRealPath("/file") + " "
                                 + Constantes.DATA_BASE_NAME + " "
                                 + Constantes.DATA_BASE_HOST + " "
                                 + Constantes.DATA_BASE_USER + " "
@@ -123,7 +125,7 @@ public class PrincipalController {
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
                                 + Constantes.ENDERECO_KRIG_S
-                                + Constantes.ENDERECO_MAPA + " "
+                                + request.getServletContext().getRealPath("/mapa") + " "
                                 + Constantes.DATA_BASE_NAME + " "
                                 + Constantes.DATA_BASE_HOST + " "
                                 + Constantes.DATA_BASE_USER + " "
@@ -219,7 +221,7 @@ public class PrincipalController {
     @Path("/visualizaGeo")
     public void visualizaGeo() {
 
-        result.include("analises", DaoFactory.analiseInstance().findAllOrdenado());
+        result.include("analises", DaoFactory.analiseInstance().findAllOrdenado("KRIG"));
       
         // result.use(Results.xml()).from(DaoFactory.analiseInstance().findAllOrdenado()).serialize();
        

@@ -23,8 +23,8 @@ public class AnaliseDao extends GenericDao<AnaliseEntity, Long>{
     }
 
     @SuppressWarnings("unchecked")
-    public List<AnaliseEntity> findAllOrdenado() {   
-        return (List<AnaliseEntity>) this.executeQuery("from AnaliseEntity order by 1 desc");
+    public List<AnaliseEntity> findAllOrdenado(String tipoAnalise) {   
+        return (List<AnaliseEntity>) this.executeQuery("from AnaliseEntity where tipo_analise  = ?0 order by 1 desc",tipoAnalise);
     }
 
 }
