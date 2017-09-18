@@ -28,3 +28,10 @@ $('#formKrig').submit(function () {
 });
 
 
+$('#formIdw').submit(function () {  
+    $('#msgError').hide();
+    $('#spinner').show();
+    $('html, body').animate({scrollTop:0}, 'slow');
+});
+
+

@@ -18,7 +18,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">    
 
-        <title>SAG - Sistema de Analise Geoestatística</title>  
+        <title>SAG - Sistema de Análise Geoestatística</title>  
 
       
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
@@ -55,21 +55,43 @@
                         <div id="menu"  class="span2">
 
                             <button type="button" class="btn btn-block" data-toggle="collapse" style="border: 1px solid silver" data-target="#menuG">
-                                <li class="nav-header">Geoestatística</li>
+                                <li class="nav-header">Geoestatística / Krigagem Ordinária</li>
                             </button>
                             <div class="menu-fundo" style="padding-top: 15px;">
 
                                 <ul class="nav nav-pills ">
                                     <div id="menuG"  class="collapse in ">                                       
                                         <li class="nav-header"  style="border-bottom: 1px solid silver; border-right: 1px solid silver">
-                                            <a href="<c:url value="/funcaoGeo"/>">Gerar Analise</a>
+                                            <a href="<c:url value="/funcaoGeo"/>">Gerar Análise Geoestatística</a>
                                         </li>
+                                   
                                         <li class="nav-header"  style="border-bottom: 1px solid silver; border-right: 1px solid silver">
-                                            <a href="<c:url value="/visualizaGeo"/>">Visualizar Analises</a>
+                                            <a href="<c:url value="/visualizaGeo"/>">Visualizar Análises Geoestatísticas </a>
                                         </li>
+                                   
+                                       
                                     </div>
                                 </ul>
                             </div>   
+                             <button type="button" class="btn btn-block" data-toggle="collapse" style="border: 1px solid silver" data-target="#menuIDW">
+                                <li class="nav-header">Estatística / Inverso da distância</li>
+                            </button>
+                            <div class="menu-fundo" style="padding-top: 15px;">
+
+                                <ul class="nav nav-pills ">
+                                    <div id="menuIDW"  class="collapse in ">                                       
+                                      
+                                        <li class="nav-header"  style="border-bottom: 1px solid silver; border-right: 1px solid silver">
+                                            <a href="<c:url value="/funcaoIdw"/>">Gerar Análises IDW</a>
+                                        </li>                                        
+                                        
+                                        <li class="nav-header"  style="border-bottom: 1px solid silver; border-right: 1px solid silver">
+                                            <a href="<c:url value="/visualizaIdw"/>">Visualizar Análises IDW </a>
+                                        </li>
+                                       
+                                    </div>
+                                </ul>
+                            </div> 
                         </div>
                     </div>
 

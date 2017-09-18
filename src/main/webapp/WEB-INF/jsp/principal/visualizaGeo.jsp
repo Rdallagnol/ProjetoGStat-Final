@@ -58,7 +58,7 @@
 
     <c:if test="${not empty analiseLines}">
         <div class="bs-docs-example">
-            <div class="bs-docs-text"> Linhas da Analise </div>
+            <div class="bs-docs-text"> Linhas da Análise </div>
             <div class="table-responsive" style="overflow: auto; max-height: 300px; overflow-y: auto ">
                 <table class="table table-bordered  table-hover table-condensed">
                     <thead>

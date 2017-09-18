@@ -45,8 +45,8 @@ public class PrincipalController {
    
 	@Path("/")
     public void index() {
-    	System.out.println(request.getServletContext().getRealPath("/file"));	
-    	System.out.println(request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " ");	
+    	//System.out.println(request.getServletContext().getRealPath("/file"));	
+    	//System.out.println(request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " ");	
     } 
 
  
@@ -55,7 +55,7 @@ public class PrincipalController {
 
         result.include("areas",
                 DaoFactory.areaDaoInstance().findAll());
-
+        System.out.println(request.getServletContext().getRealPath("/file"));
         if (request.getMethod().equals("POST")) {
             try {
             	      	
@@ -164,23 +164,38 @@ public class PrincipalController {
     
     
      
-    @Path("/funcaoInverso")
-    public void funcaoInverso() {
-
-        if (request.getMethod().equals("POST")) {
+    @Path("/funcaoIdw")
+    public void funcaoIdw() {
+    	
+    	 result.include("areas",
+                 DaoFactory.areaDaoInstance().findAll());
+        
+    	 System.out.println(request.getMethod());
+    	 if (request.getMethod().equals("POST")) {
+    		 
             try {
 
                 Process process = Runtime.getRuntime()
                         .exec(Constantes.ENDERECO_R
-                                + Constantes.ENDERECO_IDW_S
-                                + Constantes.ENDERECO_MAPA + " "
+                        		+ request.getServletContext().getRealPath("/scripts/R/Principal/script_idw.r")+ " "
+                                + request.getServletContext().getRealPath("/mapa") + " "
                                 + Constantes.DATA_BASE_NAME + " "
                                 + Constantes.DATA_BASE_HOST + " "
                                 + Constantes.DATA_BASE_USER + " "
                                 + Constantes.DATA_BASE_PASSWORD + " "
                                 + Constantes.DATA_BASE_PORT + " "
                                 + request.getParameter("user") + " "
-                                + request.getParameter("analise_line_id") + " "
+                                + request.getParameter("area") + " "
+                                + request.getParameter("amostra") + " "
+                                + request.getParameter("expoente") + " "
+                                + request.getParameter("vizinhos") + " "
+                                + request.getParameter("expoini") + " "
+                                + request.getParameter("expofinal") + " "
+                                + request.getParameter("expoint") + " "
+                                + request.getParameter("raio") + " "
+                                + request.getParameter("tamx") + " "
+                                + request.getParameter("tamy") + " "
+                                + request.getParameter("desc") + " "
                         );
 
                 try {
@@ -188,14 +203,14 @@ public class PrincipalController {
                     String line = null;
                     String ok = null;
                     while ((line = reader.readLine()) != null) {
-                       // System.out.println(line);
+                        System.out.println(line);
                         if (line.equals("[1] 9999")) {
                             ok = "OK";
                         }
                     }
                     reader.close();
                     if (ok != null) {                        
-                        result.redirectTo(this).visualizaMapa(Long.parseLong(request.getParameter("analise_line_id")));
+                        result.redirectTo(this).funcaoIdw();
                     } else {
                         result.include("errorMsg", "Não foi possível realizar a analise favor verificar dados !");
                     }
@@ -205,7 +220,7 @@ public class PrincipalController {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-
+			
         }
     }
     
@@ -265,6 +280,35 @@ public class PrincipalController {
     	result.include("userID", 872);
         
     }
+    
+    
+    @Path("/visualizaIdw")
+    public void visualizaIdw() {
+
+        result.include("analises", DaoFactory.analiseInstance().findAllOrdenado("IDW"));
+      
+        // result.use(Results.xml()).from(DaoFactory.analiseInstance().findAllOrdenado()).serialize();
+       
+        if (request.getMethod().equals("POST")) {
+
+                           
+            List<AnaliseEntity> analise
+                    = DaoFactory.analiseInstance()
+                            .findById(Long.parseLong(request.getParameter("analiseId")));
+            
+            AnaliseEntity a = new AnaliseEntity();
+            for (AnaliseEntity analiseEntity : analise) {        
+                a = analiseEntity;
+            }
+
+            result.include("analise", a);
+            result.include("userID", a.getCreated_by());
+            result.include("analiseDesc", a.getDescricao_analise());
+         
+        }
+    }
+    
+    
     
     
     @Path("/visuList")
