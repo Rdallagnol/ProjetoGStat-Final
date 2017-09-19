@@ -55,7 +55,7 @@ public class PrincipalController {
 
         result.include("areas",
                 DaoFactory.areaDaoInstance().findAll());
-        System.out.println(request.getServletContext().getRealPath("/file"));
+        //System.out.println(request.getServletContext().getRealPath("/file"));
         if (request.getMethod().equals("POST")) {
             try {
             	      	
@@ -170,7 +170,7 @@ public class PrincipalController {
     	 result.include("areas",
                  DaoFactory.areaDaoInstance().findAll());
         
-    	 System.out.println(request.getMethod());
+    	 //System.out.println(request.getMethod());
     	 if (request.getMethod().equals("POST")) {
     		 
             try {
@@ -203,7 +203,7 @@ public class PrincipalController {
                     String line = null;
                     String ok = null;
                     while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
+                        //System.out.println(line);
                         if (line.equals("[1] 9999")) {
                             ok = "OK";
                         }
@@ -238,34 +238,28 @@ public class PrincipalController {
 
        result.include("analises", DaoFactory.analiseInstance().findAllOrdenado("KRIG"));
       
-       //result.use(Results.xml()).from(DaoFactory.analiseLineInstance()
-       // .findByAnaliseHeader(675L)).serialize();
-        
-       
-       
-        if (request.getMethod().equals("POST")) {
+       //result.use(Results.xml()).from(DaoFactory.analiseLineInstance().findByAnaliseHeader(675L)).serialize();
+            
+       if (request.getMethod().equals("POST")) {
 
-           
-            List<AnaliseEntity> analise
+    	   List<AnaliseEntity> analise
                     = DaoFactory.analiseInstance()
                             .findById(Long.parseLong(request.getParameter("analiseId")));
-            AnaliseEntity a = new AnaliseEntity();
+    	   
+           AnaliseEntity a = new AnaliseEntity();
             
-            for (AnaliseEntity analiseEntity : analise) {
+           for (AnaliseEntity analiseEntity : analise) {
                 a = analiseEntity;
-            }
+           }
 
-            DaoFactory.analiseLineInstance().getEntityManager().clear(); /* Necessário */
+           DaoFactory.analiseLineInstance().getEntityManager().clear(); /* Necessário */
             
-            result.include("analiseLines",
-                    DaoFactory.analiseLineInstance()
-                            .findByAnaliseHeader(Long.parseLong(request.getParameter("analiseId"))));
-            
+           result.include("analiseLines",
+                   DaoFactory.analiseLineInstance()
+                           .findByAnaliseHeader(Long.parseLong(request.getParameter("analiseId"))));
            
+           result.include("analise", a);
             
-            result.include("analise", a);
-    
-         
         }
     }
 
@@ -294,7 +288,6 @@ public class PrincipalController {
         // result.use(Results.xml()).from(DaoFactory.analiseInstance().findAllOrdenado()).serialize();
        
         if (request.getMethod().equals("POST")) {
-
                            
             List<AnaliseEntity> analise
                     = DaoFactory.analiseInstance()
@@ -305,9 +298,7 @@ public class PrincipalController {
                 a = analiseEntity;
             }
 
-            result.include("analise", a);
-            result.include("userID", a.getCreated_by());
-            result.include("analiseDesc", a.getDescricao_analise());
+            result.include("analise", a);       
          
         }
     }

@@ -67,7 +67,7 @@
 	</div>
 
 
-	<c:if test="${not empty userID}">
+	<c:if test="${not empty analise}">
 		<div class="row-fluid bs-docs-example">
 
 			<div class="bs-docs-text">Representações Gráficas</div>
@@ -75,7 +75,7 @@
 
 				<div class="span6">
 					<img
-						src="${pageContext.servletContext.contextPath}/mapa/${userID}/${analiseDesc}/mapa_idw.png">
+						src="${pageContext.servletContext.contextPath}/mapa/${analise.created_by}/${analise.descricao_analise}/mapa_idw.png">
 				</div>
 				<div class="span2">
 					<table class="table table-bordered">
@@ -109,14 +109,14 @@
 			</div>
 			<div class="bs-docs-example">
 				<img
-					src="${pageContext.servletContext.contextPath}/mapa/${userID}/${analiseDesc}/box_plot.png">
+					src="${pageContext.servletContext.contextPath}/mapa/${analise.created_by}/${analise.descricao_analise}/box_plot.png">
 
 				<img
-					src="${pageContext.servletContext.contextPath}/mapa/${userID}/${analiseDesc}/grafico_pontos.png">
+					src="${pageContext.servletContext.contextPath}/mapa/${analise.created_by}/${analise.descricao_analise}/grafico_pontos.png">
 				<img
-					src="${pageContext.servletContext.contextPath}/mapa/${userID}/${analiseDesc}/histograma.png">
+					src="${pageContext.servletContext.contextPath}/mapa/${analise.created_by}/${analise.descricao_analise}/histograma.png">
 				<img
-					src="${pageContext.servletContext.contextPath}/mapa/${userID}/${analiseDesc}/plot_geral.png">
+					src="${pageContext.servletContext.contextPath}/mapa/${analise.created_by}/${analise.descricao_analise}/plot_geral.png">
 			</div>
 
 
