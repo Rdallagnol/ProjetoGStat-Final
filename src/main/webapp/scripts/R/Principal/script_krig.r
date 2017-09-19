@@ -227,6 +227,20 @@ image(dados.kC,
       ylab=leg_y_pamostrais,
       zlim=range(dados.kC$predict))
 
+
+max_medida = round (max(valores),digits=2)
+min_medida = round (min(valores),digits=2)
+intervalo = round ((max_medida - min_medida) / 4, digits=2)
+intervalo1 = min_medida + intervalo
+intervalo2 = intervalo1 + intervalo
+intervalo3 = intervalo2 + intervalo
+c1 = paste0 (min_medida," --- ",intervalo1)
+c2 = paste0 (intervalo1," --- ",intervalo2)
+c3 = paste0 (intervalo2," --- ",intervalo3)
+c4 = paste0 (intervalo3," --- ",max_medida)
+legend("bottomright", fill=gray(c(0.1, 0.4, 0.7, 1.0)),
+		c(c4,c3,c2,c1),cex=0.9)	
+
 zlim=range(dados.kC$predict)
 dev.off()
 

@@ -152,17 +152,17 @@
         </div>
     </c:if>
 
-    <c:if test="${not empty userID}">
+    <c:if test="${not empty analise}">
         <div class="row-fluid bs-docs-example" >
          
             <div class="bs-docs-text"> Representações Gráficas </div>
             <div class="row-fluid bs-docs-example">
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/box_plot.png">
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/grafico_pontos.png">
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/histograma.png">
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/plot_geral.png">              
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/modelos.png">
-                <img src="${pageContext.servletContext.contextPath}/file/${userID}/${analiseDesc}/melhor_modelo.png">
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/box_plot.png">
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/grafico_pontos.png">
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/histograma.png">
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/plot_geral.png">              
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/modelos.png">
+                <img src="${pageContext.servletContext.contextPath}/file/${analise.created_by}/${analise.descricao_analise}/melhor_modelo.png">
                 
             </div>
          

@@ -236,31 +236,35 @@ public class PrincipalController {
     @Path("/visualizaGeo")
     public void visualizaGeo() {
 
-        result.include("analises", DaoFactory.analiseInstance().findAllOrdenado("KRIG"));
+       result.include("analises", DaoFactory.analiseInstance().findAllOrdenado("KRIG"));
       
-        // result.use(Results.xml()).from(DaoFactory.analiseInstance().findAllOrdenado()).serialize();
+       //result.use(Results.xml()).from(DaoFactory.analiseLineInstance()
+       // .findByAnaliseHeader(675L)).serialize();
+        
+       
        
         if (request.getMethod().equals("POST")) {
 
-            String descricao = null;
-            Long userId = null;    
-         
+           
+            List<AnaliseEntity> analise
+                    = DaoFactory.analiseInstance()
+                            .findById(Long.parseLong(request.getParameter("analiseId")));
+            AnaliseEntity a = new AnaliseEntity();
+            
+            for (AnaliseEntity analiseEntity : analise) {
+                a = analiseEntity;
+            }
+
+            DaoFactory.analiseLineInstance().getEntityManager().clear(); /* Necessário */
             
             result.include("analiseLines",
                     DaoFactory.analiseLineInstance()
                             .findByAnaliseHeader(Long.parseLong(request.getParameter("analiseId"))));
-       
-            List<AnaliseEntity> analise
-                    = DaoFactory.analiseInstance()
-                            .findById(Long.parseLong(request.getParameter("analiseId")));
-
-            for (AnaliseEntity analiseEntity : analise) {
-                descricao = analiseEntity.getDescricao_analise();
-                userId = analiseEntity.getCreated_by();
-            }
-
-            result.include("userID", userId);
-            result.include("analiseDesc", descricao);
+            
+           
+            
+            result.include("analise", a);
+    
          
         }
     }
