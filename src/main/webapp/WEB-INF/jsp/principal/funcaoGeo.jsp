@@ -142,7 +142,7 @@
         <div class="btn span11" style="visibility: hidden"></div>
         <div class="navbar navbar-fixed-bottom">
             <center>
-                <button class="btn btn-large btn-primary" type="submit" id="btnEnviar" name="btnEnviar">Enviar</button>
+                <button class="btn btn-large btn-primary" type="submit" id="btnEnviar" name="btnEnviar"><i class="icon-ok-sign icon-white"></i> Gerar</button>
             </center>
         </div>
     </form>

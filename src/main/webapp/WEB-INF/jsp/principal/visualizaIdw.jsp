@@ -55,7 +55,7 @@
 									class="btn btn-link">
 									<input id="analiseId" type="hidden" name="analiseId"
 										value="${analise.analise_header_id}" />
-									<button class="btn btn-mini btn-primary" type="submit">Visualizar</button>
+									<button class="btn btn-mini " type="submit"><i class="icon-zoom-in "></i>Visualizar</button>
 								</form>
 							</td>
 						</tr>

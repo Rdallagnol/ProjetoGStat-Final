@@ -57,7 +57,7 @@
         <div class="row-fluid" style="">
             <div class="bs-docs-example span12" >                       
                 <div class="bs-docs-text "> Configurações </div>
-                <div class="">
+        
                     <div class="bs-docs-example span4" id="defaultdiv" name="defaultdiv" style="margin-left: 0px;">
                         <div class="bs-docs-text">Pixel</div>
                         <div class=" form-inline">
@@ -77,16 +77,16 @@
                             </div>
                         </div>
                     </div>                 
-                </div>
+         
 
                 <div class="">
                     <div class="bs-docs-example span12" style="margin-left: 0px;">
                         <div class="bs-docs-text">Avançado</div>
 
                         <div class="row-fluid" style="">
-                            <div class="span2">
+                            <div class="span3">
                             
-                                <label for="expoente">Expoente   <span class="label label-warning"> ( Valor 0 calcula expoente automático )</span></label>
+                                <label for="expoente">Expoente  <span class="badge badge-warning"> Expoente automático : 0</span> </label>
                               
                                 <input id="expoente" type="text" name="expoente" class="input-mini" value="0"/>
 						
@@ -95,7 +95,7 @@
                                 
                             </div>
                             
-                            <div class="span2">
+                            <div class="span3">
                                 <label for="expoini">Expoente Inicial</label>
                                 <input id="expoini" type="text" name="expoini" class="input-mini" value="0.5"/>
 
@@ -103,7 +103,7 @@
                                 <input id="expofinal" type="text" name="expofinal" class="input-mini" value="4.0"/>
                             </div>
                             
-                            <div class="span2">
+                            <div class="span3">
                             	<label for="expoint">Intervalo Expoentes</label>
                             	<input id="expoint" type="text" name="expoint" class="input-mini" value="0.5"/>
                             </div>
@@ -116,7 +116,7 @@
         <div class="btn span11" style="visibility: hidden"></div>
         <div class="navbar navbar-fixed-bottom">
             <center>
-                <button class="btn btn-large btn-primary" type="submit" id="btnEnviar" name="btnEnviar">Enviar</button>
+                <button class="btn btn-large btn-primary" type="submit" id="btnEnviar" name="btnEnviar"> <i class="icon-ok-sign icon-white"></i> Gerar</button>
             </center>
         </div>
     </form>

@@ -245,7 +245,7 @@ linhas = 1
 								(
 								interpol_line_id,
 								analise_header_id,
-                                                                analise_line_id,
+                                analise_line_id,
 								lng,
 								lat,
 								medida
@@ -254,7 +254,7 @@ linhas = 1
 								(							
 								",seq_interpol,","							 
 								 ,analise_id,","
-                                                                 ,idLines,","
+                                 ,idLines,","
 								 ,interpol[linhas,lng],","
 								 ,interpol[linhas,lat],","
 								 ,interpol[linhas,medida],

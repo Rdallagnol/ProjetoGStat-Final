@@ -45,7 +45,7 @@
                             <td> 
                                 <form action="<c:url value='visualizaGeo'/>" method="post" class="btn btn-link" > 
                                     <input id="analiseId" type="hidden" name="analiseId"  value="${analise.analise_header_id}" />
-                                    <button class="btn btn-mini btn-primary" type="submit">Visualizar</button>
+                                    <button class="btn btn-mini " type="submit"><i class="icon-zoom-in "></i> Visualizar</button>
                                 </form>
                             </td>
                         </tr>
@@ -95,16 +95,20 @@
                                     <!--<td>${analiseLine.dp_erro_medio}</td>-->
                                     <td>${analiseLine.isi}</td>
                                   
-                                    <td class="">
-                                         <form action="<c:url value='funcaoKrigagem'/> " method="post" name="formKrig" id="formKrig">
-                                            <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
-                                            <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
-                                        <button class="btn btn-mini btn-primary" type="submit">Gerar Mapa</button>
-                                        </form>
-                                            
-                                         <c:if test="${analiseLine.mapa_gerado == 1}">     
-                                                <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-warning"><i class="icon-globe"></i>${analiseLine.analise_lines_id}</a>
-                                         </c:if>   
+                                    <td class="">                           
+                                         
+                                         <c:choose>
+										    <c:when test="${analiseLine.mapa_gerado == 1}">
+										        <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-mini btn-warning"><i class="icon-picture"></i> Mapa</a>										        
+										    </c:when>    
+										    <c:otherwise>
+										        <form action="<c:url value='funcaoKrigagem'/> " method="post" name="formKrig" id="formKrig">
+		                                            <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
+		                                            <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
+				                                    <button class="btn btn-mini btn-primary" type="submit"><i class="icon-ok-sign icon-white"></i><br> Gerar Mapa</button>
+		                                        </form>
+										    </c:otherwise>
+										</c:choose>
                                          
                                     </td>
                                 </tr>
@@ -124,16 +128,18 @@
                                
                                     <td class="">
                                         
-                                        <form action="<c:url value='funcaoKrigagem'/>" method="post" name="formKrig" id="formKrig">
-                                            <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
-                                            <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
-                                            <button class="btn btn-mini btn-primary" type="submit">Gerar Mapa</button>
-                                        </form>
-                                            
-                                            
-                                        <c:if test="${analiseLine.mapa_gerado == 1}">     
-                                           <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-warning"><i class="icon-globe"></i>${analiseLine.analise_lines_id}</a>                                        
-                                        </c:if> 
+                                         <c:choose>
+										    <c:when test="${analiseLine.mapa_gerado == 1}">
+										        <a href="${linkTo[PrincipalController].visualizaMapa(analiseLine.analise_lines_id)}" class="btn btn-mini btn-warning"><i class="icon-picture"></i> Mapa</a>										        
+										    </c:when>    
+										    <c:otherwise>
+										        <form action="<c:url value='funcaoKrigagem'/> " method="post" name="formKrig" id="formKrig">
+		                                            <input id="analise_line_id" type="hidden" name="analise_line_id" value="${analiseLine.analise_lines_id}" class="input-mini"/>    
+		                                            <input id="user" type="hidden" name="user" value="872" class="input-mini"/>
+				                                    <button class="btn btn-mini btn-primary" type="submit"><i class="icon-ok-sign icon-white"></i><br> Gerar Mapa</button>
+		                                        </form>
+										    </c:otherwise>
+										</c:choose>
                                             
                                          
                                     </td>

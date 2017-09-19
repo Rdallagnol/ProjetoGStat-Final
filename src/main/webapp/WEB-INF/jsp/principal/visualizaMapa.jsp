@@ -41,12 +41,22 @@
 								<th>Método</th>
 								<td>${analise.metodo}</td>
 							</tr>
-
+							
+							<tr>
+								<th>Interpolador</th>
+								<td>${analise.analiseHeader.tipo_analise}</td>
+							</tr>
 						</tbody>
 					</table>
 
 				</div>
 			</div>
+			
+			<form action="<c:url value='/visualizaGeo'/> " method="post" >
+		        <input id="analiseId" type="hidden" name="analiseId" value="${analise.analiseHeader.analise_header_id}" class="input-mini"/>    		 
+				<button class="btn  btn-primary" type="submit"><i class="icon-circle-arrow-left icon-white"></i> Voltar</button>
+		    </form>
+			
 		</div>
 	</c:if>
 </div>

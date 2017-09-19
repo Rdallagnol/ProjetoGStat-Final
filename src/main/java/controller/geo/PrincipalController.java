@@ -210,7 +210,7 @@ public class PrincipalController {
                     }
                     reader.close();
                     if (ok != null) {                        
-                        result.redirectTo(this).funcaoIdw();
+                        result.redirectTo(this).visualizaIdw();
                     } else {
                         result.include("errorMsg", "Não foi possível realizar a analise favor verificar dados !");
                     }

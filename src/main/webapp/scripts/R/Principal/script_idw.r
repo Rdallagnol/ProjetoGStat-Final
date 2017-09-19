@@ -194,6 +194,7 @@ dev.off()
 
 
 
+
 # -- CONSTROI A SQL DO CABEÇALHO DA ANALISE  -- #
 seq_header = dbGetQuery(con, " select nextval('geo_analise_header_seq') ")
 insertHeader = paste0("INSERT INTO geo_analise_header(
@@ -220,7 +221,42 @@ insertHeader = paste0("INSERT INTO geo_analise_header(
 				",'IDW')")
 registra <- dbGetQuery(con,insertHeader)
 # ---- #
-registra
+
+# -- INSERE LINHAS DA INTERPOLADAS  -- #
+linhas = 1
+nrow(interpol)
+#while (linhas <= nrow(interpol)){
+	
+	seq_interpol = dbGetQuery(con, " select nextval('geo_interpol_lines_seq') ")
+	insertInterpol = paste0("INSERT INTO geo_interpol_lines
+					(
+					interpol_line_id,
+					analise_header_id,				
+					lng,
+					lat,
+					medida
+					) ", 
+			"VALUES
+					(							
+					",seq_interpol,","							 
+					 ,seq_header,","		
+					 ,interpol[linhas,lng],","
+					 ,interpol[linhas,lat],","
+					 ,interpol[linhas,medida],
+			")"
+	)
+	
+	
+	linhas <- linhas + 1
+	registra <- dbGetQuery(con,insertInterpol)
+	
+#}
+# ---- #
+
+
+
+
+
 dbDisconnect(con)
 dev.off()
 
