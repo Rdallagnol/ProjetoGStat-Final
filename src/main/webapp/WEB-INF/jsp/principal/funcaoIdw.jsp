@@ -79,7 +79,7 @@
                     </div>                 
          
 
-                <div class="">
+                <div class=""> 
                     <div class="bs-docs-example span12" style="margin-left: 0px;">
                         <div class="bs-docs-text">Avançado</div>
 
