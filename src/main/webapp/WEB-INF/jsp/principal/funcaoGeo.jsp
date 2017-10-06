@@ -63,12 +63,12 @@
                         <div class=" form-inline">
                             <div class="span6">
                                 <label for="tamx">Tam. X</label>
-                                <input id="tamx" type="text" name="tamx" class="input-mini" value="3"/>
+                                <input id="tamx" type="text" name="tamx" class="input-mini" value="5"/>
                             </div>
                             <div class="span6">
 
                                 <label for="tamy">Tam. Y</label>
-                                <input id="tamy" type="text" name="tamy" class="input-mini" value="3"/>
+                                <input id="tamy" type="text" name="tamy" class="input-mini" value="5"/>
                             </div>
                         </div>
                     </div>                 
@@ -128,10 +128,10 @@
                                 <input id="cutoff" type="text" name="cutoff" class="input-mini" value="50"/>
 
                                 <label for="nro_intervalos_alc">Nº Intervalo Alcance</label>
-                                <input id="nro_intervalos_alc" type="text" name="nro_intervalos_alc" class="input-mini" value="3"/>
+                                <input id="nro_intervalos_alc" type="text" name="nro_intervalos_alc" class="input-mini" value="5"/>
 
                                 <label for="nro_intervalos_contr">Nº Intervalo Contribuição</label>
-                                <input id="nro_intervalos_contr" type="text" name="nro_intervalos_contr" class="input-mini" value="3"/>
+                                <input id="nro_intervalos_contr" type="text" name="nro_intervalos_contr" class="input-mini" value="5"/>
 
                             </div>
                         </div>

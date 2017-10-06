@@ -63,12 +63,12 @@
                         <div class=" form-inline">
                             <div class="span4">
                                 <label for="tamx">Tam. X</label>
-                                <input id="tamx" type="text" name="tamx" class="input-mini" value="3"/>
+                                <input id="tamx" type="text" name="tamx" class="input-mini" value="5"/>
                             </div>
                             <div class="span4">
 
                                 <label for="tamy">Tam. Y</label>
-                                <input id="tamy" type="text" name="tamy" class="input-mini" value="3"/>
+                                <input id="tamy" type="text" name="tamy" class="input-mini" value="5"/>
                             </div>
                             <div class="span4">
 
@@ -86,27 +86,27 @@
                         <div class="row-fluid" style="">
                             <div class="span3">
                             
-                                <label for="expoente">Expoente  <span class="badge badge-warning"> Expoente automático : 0</span> </label>
+                                <label for="expoente">Expoente</label>
                               
-                                <input id="expoente" type="text" name="expoente" class="input-mini" value="0"/>
+                                <input id="expoente" type="text" name="expoente" class="input-mini" value="1"/>
 						
                                 <label for="vizinhos">N° Vizinhos</label>
                                 <input id="vizinhos" type="text" name="vizinhos" class="input-mini" value="50"/>                      
                                 
                             </div>
                             
-                            <div class="span3">
-                                <label for="expoini">Expoente Inicial</label>
-                                <input id="expoini" type="text" name="expoini" class="input-mini" value="0.5"/>
+<!--                             <div class="span3"> -->
+<!--                                 <label for="expoini">Expoente Inicial</label> -->
+<!--                                 <input id="expoini" type="text" name="expoini" class="input-mini" value="0.5"/> -->
 
-                                <label for="expofinal">Expoente Final</label>
-                                <input id="expofinal" type="text" name="expofinal" class="input-mini" value="4.0"/>
-                            </div>
+<!--                                 <label for="expofinal">Expoente Final</label> -->
+<!--                                 <input id="expofinal" type="text" name="expofinal" class="input-mini" value="4.0"/> -->
+<!--                             </div> -->
                             
-                            <div class="span3">
-                            	<label for="expoint">Intervalo Expoentes</label>
-                            	<input id="expoint" type="text" name="expoint" class="input-mini" value="0.5"/>
-                            </div>
+<!--                             <div class="span3"> -->
+<!--                             	<label for="expoint">Intervalo Expoentes</label> -->
+<!--                             	<input id="expoint" type="text" name="expoint" class="input-mini" value="0.5"/> -->
+<!--                             </div> -->
                             
                         </div>
                     </div>                 

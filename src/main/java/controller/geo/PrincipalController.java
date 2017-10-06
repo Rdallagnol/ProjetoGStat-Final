@@ -46,7 +46,7 @@ public class PrincipalController {
 	@Path("/")
     public void index() {
     	//System.out.println(request.getServletContext().getRealPath("/file"));	
-    	//System.out.println(request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " ");	
+    	System.out.println(request.getServletContext().getRealPath("/scripts/R/Principal/script_geo.r")+ " ");	
     } 
 
  
@@ -189,9 +189,9 @@ public class PrincipalController {
                                 + request.getParameter("amostra") + " "
                                 + request.getParameter("expoente") + " "
                                 + request.getParameter("vizinhos") + " "
-                                + request.getParameter("expoini") + " "
-                                + request.getParameter("expofinal") + " "
-                                + request.getParameter("expoint") + " "
+                              //  + request.getParameter("expoini") + " "
+                              //  + request.getParameter("expofinal") + " "
+                              //  + request.getParameter("expoint") + " "
                                 + request.getParameter("raio") + " "
                                 + request.getParameter("tamx") + " "
                                 + request.getParameter("tamy") + " "

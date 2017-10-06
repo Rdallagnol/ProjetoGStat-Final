@@ -157,7 +157,7 @@ dados.var <- variog(dados,
 		    pairs.min=nro_pares) 
  
 
-## FAZ O AJUSTE NOVAMENTE COM O MELHOR MODELO (POR QUE?) ---- ##
+## FAZ O AJUSTE NOVAMENTE COM O MELHOR MODELO ---- ##
 if (melhor_modelo_geral == "matern"){
 	if (melhor_metodo_geral=="ols"){ 
 		variograma.ols<-variofit(dados.var,ini=c(melhor_contrib_geral,melhor_alcance_geral),
@@ -217,7 +217,7 @@ range(dados.kC$predict)
 
 ## MAPA ##
 x=paste("mapa",".png",sep = "")
-png(x)
+png(x,width = 700, height = 800, units = "px")
 
 image(dados.kC, 
       loc=gr, 
@@ -225,6 +225,7 @@ image(dados.kC,
       col=gray(seq(1,0,l=classes)),
       xlab=leg_x_pamostrais,
       ylab=leg_y_pamostrais,
+	  cex.lab=1.3, cex.axis=1.3, cex.main=1.3, cex.sub=1.3,
       zlim=range(dados.kC$predict))
 
 
@@ -238,8 +239,8 @@ c1 = paste0 (min_medida," --- ",intervalo1)
 c2 = paste0 (intervalo1," --- ",intervalo2)
 c3 = paste0 (intervalo2," --- ",intervalo3)
 c4 = paste0 (intervalo3," --- ",max_medida)
-legend("bottomright", fill=gray(c(0.1, 0.4, 0.7, 1.0)),
-		c(c4,c3,c2,c1),cex=0.9)	
+legend("bottomright",  plot = TRUE, fill=gray(c(0.1, 0.4, 0.7, 1.0)),
+		c(c4,c3,c2,c1),cex=1.3)	
 
 zlim=range(dados.kC$predict)
 dev.off()
@@ -254,28 +255,28 @@ interpol <- data.table(cbind(lng, lat, medida))
 linhas = 1
 #while (linhas <= nrow(interpol)){
 	
-	seq_interpol = dbGetQuery(con, " select nextval('geo_interpol_lines_seq') ")
-	insertInterpol = paste0("INSERT INTO geo_interpol_lines
-								(
-								interpol_line_id,
-								analise_header_id,
-                                analise_line_id,
-								lng,
-								lat,
-								medida
-								) ", 
-						"VALUES
-								(							
-								",seq_interpol,","							 
-								 ,analise_id,","
-                                 ,idLines,","
-								 ,interpol[linhas,lng],","
-								 ,interpol[linhas,lat],","
-								 ,interpol[linhas,medida],
-								")"
-						)
-	registra <- dbGetQuery(con,insertInterpol)
-    linhas <- linhas + 1
+	#seq_interpol = dbGetQuery(con, " select nextval('geo_interpol_lines_seq') ")
+	#insertInterpol = paste0("INSERT INTO geo_interpol_lines
+	#							(
+	#							interpol_line_id,
+	#							analise_header_id,
+     #                           analise_line_id,
+	#							lng,
+	#							lat,
+	#							medida
+	#							) ", 
+	#					"VALUES
+	#							(							
+	#							",seq_interpol,","							 
+	#							 ,analise_id,","
+     #                            ,idLines,","
+	#							 ,interpol[linhas,lng],","
+	#							 ,interpol[linhas,lat],","
+	#							 ,interpol[linhas,medida],
+	##							")"
+	#					)
+	#registra <- dbGetQuery(con,insertInterpol)
+   # linhas <- linhas + 1
 #}
 
 atualizaLine = paste0(" UPDATE GEO_ANALISE_LINES SET MAPA_GERADO = 1 WHERE ANALISE_LINES_ID = ", idLines)

@@ -13,13 +13,13 @@ area<-as.numeric(args[8])
 amostra<-as.numeric(args[9])
 expoente <- as.numeric(args[10])  		#se for 0 (zero) será escontrado o melhor expoente, ou define-se o valor do expoente
 vizinhos <- as.numeric(args[11]) 		
-exp_inicial <- as.numeric(args[12]) 		
-exp_final <- as.numeric(args[13])  		
-intervalo <- as.numeric(args[14])		
-raio <- as.numeric(args[15])	
-tam_pixel_x <- as.numeric(args[16]) 
-tam_pixel_y <- as.numeric(args[17]) 	
-desc <- args[18]
+#exp_inicial <- as.numeric(args[12]) 		
+#exp_final <- as.numeric(args[13])  		
+#intervalo <- as.numeric(args[14])		
+raio <- as.numeric(args[12])	
+tam_pixel_x <- as.numeric(args[13]) 
+tam_pixel_y <- as.numeric(args[14]) 	
+desc <- args[15]
 
 # -- INICIO BIBLIOTECAS UTILIZADAS  -- #
 require(geoR)
@@ -127,14 +127,6 @@ menor_Y <- min(borda[,2]) #identifica o menor valor de Y, segunda coluna
 maior_X <- max(borda[,1]) #identifica o maior valor de X, primeira coluna 
 maior_Y <- max(borda[,2]) #identifica o maior valor de Y, segunda coluna 
 
-amostra
-menor_X
-maior_X
-tam_pixel_x
-menor_Y
-maior_Y
-tam_pixel_y
-
 gr<-expand.grid(x=seq(menor_X,maior_X, by=tam_pixel_x), y=seq(menor_Y,maior_Y, by=tam_pixel_y))
 plot(gr)
 points(dados, pt.div="equal") #monta o grid de interpolação
@@ -143,8 +135,6 @@ gi<- polygrid(gr,bor=borda)
 
 points(gi, pch="+", col=2) #o novo grid considerando apenas a região limitada
 
-
-expoente = 4
 
 ### Criar objeto 'sp'
 frame_id <- data.frame(x=dados$coords[,1], y=dados$coords[,2], atrib=dados$data)
@@ -171,11 +161,12 @@ medida = valores
 interpol <- data.table(cbind(lng, lat, medida))
 
 x=paste("mapa_idw",".png",sep = "")
-png(x)
+png(x,width = 700, height = 800, units = "px")
 image(interpol,
 		col=gray(seq(1,0,l=classes)), 
 		xlab=leg_x_pamostrais, 
 		ylab=leg_y_pamostrais, 
+		cex.lab=1.3, cex.axis=1.3, cex.main=1.3, cex.sub=1.3,
 		zlim=range(valores)) 
 
 max_medida = round (max(medida),digits=2)
@@ -189,13 +180,10 @@ c2 = paste0 (intervalo1," --- ",intervalo2)
 c3 = paste0 (intervalo2," --- ",intervalo3)
 c4 = paste0 (intervalo3," --- ",max_medida)
 legend("bottomright", fill=gray(c(0.1, 0.4, 0.7, 1.0)),
-		c(c4,c3,c2,c1),cex=0.9)	
+		c(c4,c3,c2,c1),cex=1.3)	
 
 polygon(borda)
 dev.off()
-
-
-
 
 # -- CONSTROI A SQL DO CABEÇALHO DA ANALISE  -- #
 seq_header = dbGetQuery(con, " select nextval('geo_analise_header_seq') ")
@@ -254,10 +242,6 @@ nrow(interpol)
 	
 #}
 # ---- #
-
-
-
-
 
 dbDisconnect(con)
 dev.off()
